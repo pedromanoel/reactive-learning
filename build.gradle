@@ -23,9 +23,11 @@ repositories {
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
     implementation 'com.google.guava:guava:27.0.1-jre'
+    compile 'io.reactivex.rxjava2:rxjava:2.2.0'
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
+    testCompile group: 'org.assertj', name: 'assertj-core', version: '1.0.0'
 }
 
 // Define the main class for the application
