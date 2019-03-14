@@ -3,12 +3,48 @@
  */
 package com.pedromanoel.reactive;
 
+import io.reactivex.Observable;
+
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+
 public class App {
-    public String getGreeting() {
-        return "Hello world.";
-    }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        List<String> list = Arrays.asList("One", "Two", "Three", "Four", "Five");
+
+        printIterating(list);
+
+        printReacting(list);
+
+        printFinish();
+    }
+
+    private static void printFinish() {
+        System.out.println("Finished");
+    }
+
+    private static void printReacting(List<String> list) {
+        System.out.println("Print using observer");
+
+        // fromIterable runs on current thread (no specific Scheduler is used)
+        Observable<String> observable = Observable.fromIterable(list);
+
+        observable.subscribe(element -> {
+            System.out.println(element);
+        });
+
+    }
+
+    private static void printIterating(List<String> list) {
+        System.out.println("Print using iterator");
+        Iterator<String> it = list.iterator();
+
+        while(it.hasNext()) {
+            String element = it.next();
+
+            System.out.println(element);
+        }
     }
 }
