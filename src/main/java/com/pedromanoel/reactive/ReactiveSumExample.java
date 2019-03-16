@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 
 public class ReactiveSumExample extends Example {
 
-    public ReactiveSumExample() {
+    ReactiveSumExample() {
         super("Reactive Sum");
     }
 
@@ -30,9 +30,9 @@ public class ReactiveSumExample extends Example {
     }
 
     private Observable<Double> varStream(String name, ConnectableObservable<String> input) {
-        String assignmentRegex = "\\s*[:=]\\s*";
-        String numberRegex = "-?\\d+(?:\\.\\d+)?";
-        Pattern pattern = Pattern.compile("^" + name+ assignmentRegex + "(?<value>" + numberRegex + ")$");
+        String assignment = "\\s*[:=]\\s*";
+        String number = "-?\\d+(?:\\.\\d+)?";
+        Pattern pattern = Pattern.compile("^" + name + assignment + "(?<value>" + number + ")$");
 
         return input
                 .map(String::trim)
@@ -68,7 +68,7 @@ public class ReactiveSumExample extends Example {
     private class ReactiveSum implements Observer<Double> {
         private double sum = 0;
 
-        public ReactiveSum(Observable<Double> a, Observable<Double> b) {
+        ReactiveSum(Observable<Double> a, Observable<Double> b) {
             Observable.combineLatest(a, b, Double::sum).subscribe(this);
         }
 
