@@ -28,6 +28,7 @@ dependencies {
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
     testCompile group: 'org.assertj', name: 'assertj-core', version: '1.0.0'
+    testCompile group: 'org.mockito', name: 'mockito-core', version: '2.1.0'
 }
 
 // Define the main class for the application

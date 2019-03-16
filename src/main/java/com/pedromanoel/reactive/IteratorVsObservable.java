@@ -6,24 +6,17 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-public class FirstExample {
+public class IteratorVsObservable extends Example {
 
-    public void run() {
-        printStart();
+    IteratorVsObservable() {
+        super("Iterator vs Observable");
+    }
 
+    @Override
+    protected void example() {
         List<String> list = Arrays.asList("One", "Two", "Three", "Four", "Five");
         printIterating(list);
         printReacting(list);
-
-        printFinish();
-    }
-
-    private void printStart() {
-        System.out.println("# First example\n");
-    }
-
-    private void printFinish() {
-        System.out.println("## Finished first example\n");
     }
 
     private void printReacting(List<String> list) {

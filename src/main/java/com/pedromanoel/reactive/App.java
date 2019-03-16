@@ -6,6 +6,7 @@ package com.pedromanoel.reactive;
 public class App {
 
     public static void main(String[] args) {
-        new FirstExample().run();
+        new IteratorVsObservable().run();
+        new OnErrorAndOnCompleted().run();
     }
 }
