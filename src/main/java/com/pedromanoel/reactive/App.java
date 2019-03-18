@@ -8,6 +8,7 @@ public class App {
     public static void main(String[] args) {
         new IteratorVsObservable().run();
         new OnErrorAndOnCompleted().run();
-        new ReactiveSumExample().run();
+//        new ReactiveSumExample().run();
+        new ReactiveSumLambdaExample().run();
     }
 }
